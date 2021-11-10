@@ -1,9 +1,15 @@
+import { set } from 'lodash'
 import React,{useState,useEffect} from 'react'
 import {getUsers} from '../../Utility/User_Logic/Users'
 const UserIndex = () => {
     const [data,setData] = useState([])
+    const getUs=async()=>{
+        await getUsers().then((res)=>{
+            setData(res)
+        })
+    }
     useEffect(()=>{
-        setData(getUsers)
+        getUs()
     },[])
     return (
         <div>
