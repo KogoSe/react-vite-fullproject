@@ -1,9 +1,15 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {getComments} from "../../Utility/Comment_Logic/Comments"
+
 const CommentIndex = () => {
     const [data,setData] = useState([])
+    const getCom=async()=>{
+        await getComments().then((res)=>{
+            setData(res)
+        })
+    }
     useEffect(()=>{
-        setData(getComments)
+        getCom()
     },[])
     return (
         <div>
@@ -12,8 +18,8 @@ const CommentIndex = () => {
                 {data.map((res,i)=>{
                     return <div key={i}>
                         <li>{res.name}</li>
-                        <li>{res.username}</li>
                         <li>{res.email}</li>
+                        <li>{res.body}</li>
 
                     </div>
                 })}

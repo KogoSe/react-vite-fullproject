@@ -6,10 +6,9 @@ import './Configs'
 import {BrowserRouter as Router}from 'react-router-dom'
 ReactDOM.render(
   <React.StrictMode>
-    <Router forceRefresh={true}>
+    <Router>
       <App />
     </Router>
-    <App />
   </React.StrictMode>,
   document.getElementById('root')
 )

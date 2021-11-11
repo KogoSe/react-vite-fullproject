@@ -1,12 +1,11 @@
-import { useState } from 'react'
-import logo from './logo.svg'
 import './App.scss'
-import Userpage from "./Pages/Userpage"
+import Routerindex from './Routers/Routerindex'
+
 
 function App() {
   return (
     <div className="App">
-      <Userpage/>
+      <Routerindex/>
     </div>
   )
 }

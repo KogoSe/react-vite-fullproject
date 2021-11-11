@@ -1,9 +1,15 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import {getPosts} from "../../Utility/Post_Logic/Posts"
+
 const PostIndex = () => {
     const [data,setData] = useState([])
+    const getPo=async()=>{
+        await getPosts().then((res)=>{
+            setData(res)
+        })
+    }
     useEffect(()=>{
-        setData(getPosts)
+        getPo()
     },[])
     return (
         <div>
@@ -11,9 +17,9 @@ const PostIndex = () => {
                 {data.length !== 0? <>
                 {data.map((res,i)=>{
                     return <div key={i}>
-                        <li>{res.name}</li>
-                        <li>{res.username}</li>
-                        <li>{res.email}</li>
+                        <li>{res.id}</li>
+                        <li>{res.title}</li>
+                        <li>{res.body}</li>
 
                     </div>
                 })}
